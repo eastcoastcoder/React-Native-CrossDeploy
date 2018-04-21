@@ -9,8 +9,9 @@ class App extends Component {
   state = {
     language: "java"
   }
+  
   _onButtonPress() {
-    //do some things
+    console.log('The button was pressed!');
   }
 
   render() {
