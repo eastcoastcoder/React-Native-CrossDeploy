@@ -1,0 +1,33 @@
+{
+  "name": "reactnativecrossdeploy",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "start:web": "node fixrs && react-scripts start",
+    "build:web": "node fixrs && react-scripts build",
+    "test:web": "node fixrs && react-scripts test --env=jsdom",
+    "eject:web": "node fixrs && react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-art": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-native": "0.55.3",
+    "react-native-web": "^0.6.0",
+    "react-native-windows": "0.55.0-rc.0",
+    "react-scripts": "1.0.17"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.3",
+    "babel-plugin-react-native-web": "^0.6.0",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.3",
+    "react-test-renderer": "16.3.1",
+    "rnpm-plugin-windows": "^0.2.8"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
