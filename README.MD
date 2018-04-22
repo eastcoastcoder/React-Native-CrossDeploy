@@ -4,6 +4,7 @@
 
 This project is a curation of resources and example app to demonstrate the flexibility of the React Native Ecosystem.
 
+The web version is hosted through gh-pages. [Link](http://ethanx94.github.io/React-Native-CrossDeploy)
 
 This project allows a shared codebase to be deployed to the following platforms:
 
@@ -36,3 +37,8 @@ react-native wpf
 yarn add react react-dom react-scripts react-art react-native-web
 yarn add --dev babel-plugin-react-native-web babel-preset-react-native@4.0.0
 ```
+In order for the generated HTML to follow correct paths, you must add the property `"homepage": "./"` to your project's package.json. This is read react-scripts during the `react-scripts build` command and creates generates an html file which follows the correct relative paths.
+
+React-scripts also looks for your index.js to be within an /src directory. If this is not the case, as it is in this repo, the scripts will fail. To circumvent this consider chaining the fixrs.js script I've included in this repo before running any react-scripts command.
+
+If you'd like to host your project on GitHub my recommendation is to rename your generated /build folder to /docs then on your repository's Settings tab set your GitHub Pages Source as 'master branch /docs folder'.
