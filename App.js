@@ -1,24 +1,33 @@
 import React, { Component } from "react";
-import { Text, View, Button, Picker } from "react-native";
+import { Text, View, Button, Picker, Alert, Platform } from "react-native";
 import { styles } from "./utils/styles";
-import SomeCustomComponent from "./SomeCustomComponent";
 
 // see https://github.com/necolas/react-native-web
 
 class App extends Component {
   state = {
     language: "java"
-  }
-  
+  };
+
   _onButtonPress() {
-    console.log('The button was pressed!');
+    const message = 'Congradulations, you have learned more.';
+    Platform.OS === 'web'
+    ? global.alert(message)
+    : Alert.alert(
+      'Alert Title',
+      message,
+      [
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
+        { cancelable: false }
+      )
   }
 
   render() {
     return (
       <View>
         <View style={styles.box}>
-          <Text style={styles.text}>Yo, some things</Text>
+          <Text style={styles.text}>My favorite language is: {this.state.language}</Text>
         </View>
         <View style={styles.buttonView}>
           <Button
@@ -35,9 +44,6 @@ class App extends Component {
             <Picker.Item label="Java" value="java" />
             <Picker.Item label="JavaScript" value="js" />
           </Picker>
-        </View>
-        <View>
-          <SomeCustomComponent />
         </View>
       </View>
     );
