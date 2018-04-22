@@ -1,9 +1,17 @@
+const { promisify } = require('util');
 const fs = require('fs');
-const path = './node_modules/react-scripts/config/paths.js';
-const folder = '.';
+const readFile = promisify(fs.readFile);
+const writeFile = promisify(fs.writeFile);
 
-fs.readFile(path, 'utf8', (err, data) => {
- if (err) throw err;
- data = data.replace(/src/g, folder);
- fs.writeFile(path, data, 'utf8');
-});
+(async () => {
+  const reactScriptsConfigPath = './node_modules/react-scripts/config/paths.js';
+  const indexJsPath = '.';
+  try {
+    let data = await readFile(reactScriptsConfigPath, 'utf8');
+    data = data.replace(/src/g, indexJsPath);
+    await writeFile(reactScriptsConfigPath, data, 'utf8');
+  } catch(err) {
+    console.log(err);
+    throw err;
+  }
+})();
