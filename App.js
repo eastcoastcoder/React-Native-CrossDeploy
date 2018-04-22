@@ -10,7 +10,7 @@ class App extends Component {
   };
 
   _onButtonPress() {
-    const message = 'Congradulations, you have learned more.';
+    const message = 'Congratulations, you have learned more.';
     Platform.OS === 'web'
     ? global.alert(message)
     : Alert.alert(

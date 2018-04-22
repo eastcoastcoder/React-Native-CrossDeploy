@@ -8,6 +8,7 @@
     "test": "jest",
     "start:web": "node fixrs && react-scripts start",
     "build:web": "node fixrs && react-scripts build",
+    "build:ghpages": "node fixrs && react-scripts build && mv build docs || rename build docs",
     "test:web": "node fixrs && react-scripts test --env=jsdom",
     "eject:web": "node fixrs && react-scripts eject"
   },
